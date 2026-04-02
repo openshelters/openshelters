@@ -17,6 +17,9 @@ updates:
       prefix: "chore"
     cooldown:
       default-days: 7
+    ignore:
+      - dependency-name: "symfony/*"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
