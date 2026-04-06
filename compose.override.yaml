@@ -25,3 +25,12 @@ services:
     tty: true
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###
+
+###> doctrine/doctrine-bundle ###
+  database:
+    ports:
+      - name: postgres-port
+        target: 5432
+        published: 5432
+        protocol: tcp
+###< doctrine/doctrine-bundle ###

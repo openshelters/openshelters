@@ -3,6 +3,7 @@ DOCKER_COMP = docker compose
 
 # Docker containers
 PHP_CONT = $(DOCKER_COMP) exec php
+DB_CONT = $(DOCKER_COMP) exec database
 
 # Executables
 PHP      = $(PHP_CONT) php
@@ -28,6 +29,9 @@ start: build up ## Build and start the containers
 
 down: ## Stop the docker hub
 	@$(DOCKER_COMP) down --remove-orphans
+
+destroy: ## Stop the docker hub, remove images and volumes
+	@$(DOCKER_COMP) down --remove-orphans --rmi "all" --volumes
 
 logs: ## Show live logs
 	@$(DOCKER_COMP) logs --tail=0 --follow
